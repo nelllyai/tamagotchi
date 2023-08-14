@@ -1,5 +1,5 @@
 import { Panel } from "./control";
-
+import { RoundButton } from "./control";
 import { Pet } from "./control";
 
 class Context {
@@ -10,6 +10,8 @@ class Context {
 
   private _panel: Panel;
   private _pet: Pet;
+
+  private _buttons: RoundButton[];
 
   private _bg: HTMLImageElement;
 
@@ -29,6 +31,11 @@ class Context {
     this._panel = panel;
     this._pet = pet;
 
+    this._buttons = [
+      new RoundButton(185, 585, "#FFE500", 35),
+      new RoundButton(415, 585, "#FFE500", 35),
+    ];
+
     this._bg = bg;
 
     this._timePoint = Date.now();
@@ -43,15 +50,7 @@ class Context {
     this._ctx.clearRect(0, 0, this._w, this._h);
 
     this._ctx.drawImage(this._bg, 0, 0, this._w, this._h);
-
-    this._ctx.beginPath();
-    this._ctx.arc(370, 1170, 70, 0, Math.PI * 2);
-    this._ctx.fillStyle = "#FFE500";
-    this._ctx.fill();
-
-    this._ctx.beginPath();
-    this._ctx.arc(830, 1170, 70, 0, Math.PI * 2);
-    this._ctx.fill();
+    this._buttons.forEach((btn) => btn.draw(this._ctx));
 
     this._panel.draw();
     this._pet.draw();
@@ -81,8 +80,8 @@ const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 const caseImage = document.getElementById("case") as HTMLImageElement;
 const petImage = document.getElementById("pet") as HTMLImageElement;
 
-const panel = new Panel(ctx, 320, 512, 560, 300, 8);
-const pet = new Pet(ctx, petImage, 641, 562, 200, 200, 330, 522, 870, 802);
+const panel = new Panel(ctx, 160, 256, 280, 150, 8);
+const pet = new Pet(ctx, petImage, 321, 326, 100, 100, 165, 261, 435, 401);
 
 const context = new Context(ctx, panel, pet, caseImage);
 context.init();
