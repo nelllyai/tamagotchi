@@ -2,8 +2,8 @@ import "./style.css";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <canvas width="600" height="700" id="canvas"></canvas>
-  <img src="/case.svg" id="case">
-  <img src="/pet.svg" id="pet">
+  <img src="/images/case.svg" id="case">
+  <img src="/images/pet.svg" id="pet">
 
   <img src="/icons/clean.svg" id="clean" class="icon">
   <img src="/icons/play.svg" id="play" class="icon">
