@@ -56,7 +56,7 @@ document.querySelector("#app").innerHTML = `
   <img src="statuses/chat.svg" id="status-chat" class="icon">
   <img src="statuses/sleep.svg" id="status-sleep" class="icon">
 
-  <img src="/icons/dead.svg" id="dead" class="icon">
+  <img src="icons/dead.svg" id="dead" class="icon">
 `;
 class w {
   constructor(s, t, o, i) {
